@@ -3,7 +3,7 @@
 const VERSION = '0.8.4'
 const CODENAME = 'tears proof masquerade'
 const DESCRIPTION = Date.now() > 15959e8? '偽りなき技巧が挑戦への扉を開く' : 'rest in peace, rt-karen.'
-
+let countAbc = 0;
 const CONFIG_DEFAULT = {
   lang: 'ko',
   style: {
@@ -402,7 +402,7 @@ const COLUMN_INDEX = {
     },
     last20crit: {
       v: _ => (parseInt(_.crithits) || 0) / (parseInt(_.swings) || 1) * 100,
-      f: (_, conf) => _.toFixed(conf.format.significant_digit.critical) +
+      f: (_, conf) => ++countAbc +
                       (conf.format.use_tailing_pct? '<small>%</small>' : '')
     },
     direct: {
