@@ -245,6 +245,7 @@
       "miss": ["Miss", "Misses"],
       "hitfail": ["HitF", "Hitfail"],
       "critical": ["CH", "Critical Hit%"],
+      "last20Crit": ["20s", "Crit % for Last 20s"],
       "direct": ["DH", "Direct Hit%"],
       "crit_direct": ["!!!", "Critical Direct Hit% (!!!)"],
       "crittypes": ["D/!/!!!", "Direct/Critical/!!! Count"],
@@ -254,8 +255,7 @@
       "last10": ["10s", "DPS for Last 10s"],
       "last30": ["30s", "DPS for Last 30s"],
       "last60": ["1m", "DPS for Last 1min"],
-      "last180": ["3m", "DPS for Last 3min (Beta)"],
-      "last20Crit":["20s", "Crit % for Last 20s"]
+      "last180": ["3m", "DPS for Last 3min (Beta)"]
     },
     "tank": {
       "_": "Tank",
