@@ -1,161 +1,161 @@
 {
   "general": {
-    "left": "왼쪽",
-    "center": "가운데",
-    "right": "오른쪽"
+    "left": "Left",
+    "center": "Center",
+    "right": "Right"
   },
   "ui": {
     "header": {
-      "in-develop": "개발 중 버전",
-      "waiting-data": "데이터를 기다리는 중",
-      "no-data-yet": "아직 데이터가 없습니다.",
-      "please-do-combat": "전투를 진행 후 다시 확인해주세요."
+      "in-develop": "Develop/Unstable",
+      "waiting-data": "Awaiting combat",
+      "no-data-yet": "No data yet",
+      "please-do-combat": "Please initiate combat first"
     },
     "menu": {
-      "merge-pet-on": "펫 합산 켜기",
-      "merge-pet-off": "펫 합산 끄기",
-      "nameblur-on": "이름 가리기",
-      "nameblur-off": "이름 보이기",
-      "end-encounter": "전투 집계 끊기",
-      "settings": "설정",
-      "reload": "새로고침",
-      "fullscreen": "전체 화면 전환",
-      "screenshot": "스크린샷",
-      "donate": "기부"
+      "merge-pet-on": "Turn on pet-merging",
+      "merge-pet-off": "Turn off pet-merging",
+      "nameblur-on": "Blur name",
+      "nameblur-off": "Unblur name",
+      "end-encounter": "Split encounter",
+      "settings": "Settings",
+      "reload": "Reload overlay",
+      "fullscreen": "Toggle fullscreen",
+      "screenshot": "Take screenshot",
+      "donate": "Donate"
     },
     "config": {
-      "_": "설정",
-      "save": "저장",
-      "execute": "실행",
+      "_": "Settings",
+      "save": "Save",
+      "execute": "Execute",
       "dialog": {
-        "really": "정말로 이 설정을 초기화하시겠습니까?",
-        "apply": "이 설정값을 적용할까요?",
-        "undone": "되돌릴 수 없습니다!",
-        "yes": "예",
-        "no": "아니오",
+        "really": "Really reset these settings?",
+        "apply": "Apply this settings?",
+        "undone": "This cannot be undone!",
+        "yes": "Yes",
+        "no": "No",
         "manual-reload": {
-          "title": "새로고침 실패!",
-          "content": "메뉴에서 직접 새로고침을 눌러 주세요."
+          "title": "Cannot reload overlay!",
+          "content": "Please reload overlay manually."
         }
       },
       "general": {
-        "_": "일반",
-        "combine_pet": "펫 합산",
-        "split-by-comma": "쉼표(,)로 구분합니다.",
-        "basic": "기본",
+        "_": "General",
+        "combine_pet": "Pet merging",
+        "split-by-comma": "Divide multiple names by ','",
+        "basic": "Basic",
         "footer-visibility": {
-          "_": "하단 바",
-          "show": "표시",
-          "use-header-instead": "항목을 상단 바에 대신 표시",
-          "hide": "표시 안 함"
+          "_": "Footer",
+          "show": "Show as normal",
+          "use-header-instead": "Use header, for elements instead",
+          "hide": "Hide"
         },
         "footer": {
-          "_": "하단 바 항목",
-          "rank": "현재 순위",
+          "_": "Footer elements",
+          "rank": "Current rank",
           "rdps": "RDPS",
           "rhps": "RHPS",
-          "recover": "총 받은 힐 / 받은 대미지 🔄"
+          "recover": "Total Healing Received / Damage Taken 🔄"
         },
-        "reset": "Re:제로",
-        "reset-this": "전부 초기화하기"
+        "reset": "Reset",
+        "reset-this": "Reset All"
       },
       "style": {
-        "_": "스타일",
-        "reset-this": "스타일 초기화",
+        "_": "Style",
+        "reset-this": "Reset style",
         "css-help": [
-          "모두 CSS 값을 사용합니다.<br />세미콜론을 붙이고 다른 속성을 추가로 사용할 수 있습니다.",
-          "<code>rgba(빨강, 초록, 파랑, 투명도)</code>로 반투명한 색을 사용합니다. 투명도는 0에서 1입니다.",
-          "<code>url('이미지 주소')</code>로 배경 이미지를 사용합니다."
+          "Use CSS values. Can be extended with other attributes with semicolon.",
+          "Use semi-transparent color with <code>rgba(Red, Green, Blue, Alpha)</code>. <br /> Alpha is 0 to 1.",
+          "Use image background with <code>url('Image URL')</code>"
         ],
         "image": {
-          "_": "배경 이미지",
-          "help": "배경 이미지가 배경 색보다 우선합니다. 이미지 주소는 반드시 <code>url('http://...')</code>처럼 감싸야 합니다.",
-          "color": "색",
-          "image": "이미지",
-          "opacity": "배경 투명도",
-          "filter": "CSS 필터 (고급)",
-          "default": "기본 값: "
+          "_": "Background image",
+          "help": "The background image takes precedence over specified background color, except transparent pixels. Image URL should be wrapped in <code>url('Image URL')</code>.",
+          "color": "Fill",
+          "image": "Image",
+          "opacity": "Opacity",
+          "filter": "CSS Filter (Advanced)",
+          "default": "Default: "
         },
-        "layout": "레이아웃",
-        "background": "배경",
-        "foreground": "글자 색",
-        "width-applied-only": "24인 모드가 설정되어 있을 때만 적용됩니다.",
+        "layout": "Layout",
+        "background": "Background",
+        "foreground": "Foreground",
+        "width-applied-only": "Only for tabs setted 'Cell per line' other than 1.",
         "element": {
-          "nav": "상단 바",
-          "dropdown": "드롭다운",
-          "my-row": "내 데이터",
-          "header": "표 헤더",
-          "table": "표",
-          "cell": "항목"
+          "nav": "Navbar",
+          "dropdown": "Dropdown menu",
+          "my-row": "My data",
+          "header": "Table header",
+          "table": "Table",
+          "cell": "Cell"
         },
-        "shadow": "그림자"
+        "shadow": "Shadow"
       },
       "color": {
-        "_": "게이지 색상",
-        "reset-this": "색상 초기화",
-        "etc": "기타",
-        "pet-buddy": "소환수/버디"
+        "_": "Gauge Colors",
+        "reset-this": "Reset Colors",
+        "etc": "Etc",
+        "pet-buddy": "Pet/Buddy"
       },
       "width": {
-        "_": "너비",
-        "reset-this": "너비 초기화",
+        "_": "Column Width",
+        "reset-this": "Reset Widths",
         "css-help": [
-          "16px 단위이며, 크기 조절에 따라 달라집니다.",
-          "'이름' 칸은 창 너비가 줄어들 때 제일 먼저 줄어듭니다."
+          "Unit is default 16px, and changed by UI scale.",
+          "The 'Name' column is the first to decrease when the window width decreases."
         ]
       },
       "tab": {
-        "_": "탭",
-        "title": "제목",
-        "width": "24인 모드",
-        "sortby": "정렬 기준",
-        "available": "사용할 수 있는 항목",
-        "configured": "설정된 항목 (권장: 이름 제외 6개까지)",
-        "widths": [ 0, "끔", "2명씩", "3명씩" ]
+        "_": "Tab",
+        "title": "Title",
+        "width": "Cell per line",
+        "sortby": "Sort by",
+        "available": "Available columns",
+        "configured": "Configured columns",
+        "widths": [ 0, 1, 2, 3 ]
       },
       "i/e": {
-        "_": "들여오기/내보내기",
-        "import": "들여오기",
-        "export": "내보내기",
-        "copy-this": "아래의 값을 전부 복사하세요:",
-        "paste-here": "아래에 가져온 값을 붙여넣으세요:",
-        "save-first": "먼저 저장해야 합니다!",
-        "export-help": "기본값인 설정과 일부 설정값은 내보내지지 않습니다.",
-        "config-to-export": "내보낼 설정",
-        "all": "전부",
-        "data-fault": "데이터가 잘못됐습니다.",
-        "content-count": "설정된 항목 수"
+        "_": "Import/Export",
+        "import": "Import",
+        "export": "Export",
+        "copy-this": "Copy everything below:",
+        "paste-here": "Paste the fetched value below:",
+        "save-first": "Save First!!",
+        "export-help": "Some values and values that are the same as the default are not exported.",
+        "config-to-export": "Config to export",
+        "all": "All",
+        "data-fault": "Data is incorrect or broken.",
+        "content-count": "Column count"
       },
       "etc": {
-        "_": "더 보기",
+        "_": "More",
         "others": {
-          "_": "기타",
-          "skill-aliases-help": "'The Forbidden Chakra'와 같은 긴 스킬 이름에 대해 약칭을 사용합니다.",
-          "filter": "필터",
+          "_": "Others",
+          "skill-aliases-help": "Use shorter abbreviations for long skill names like 'The Forbidden Chakra'.",
+          "filter": "Filter",
           "filter-help": [
-            "FFXIV_Plugin이 피아식별조차 제대로 못 하는 관계로, 어떻게든 적을 표시하지 않도록 시도합니다.",
-            "뭔가 이상하다면, 아래의 모든 옵션을 꺼 보세요."
+            "FFXIV_Plugin does not identify friends or foe, so these options will try not to display enemies in any way.",
+            "If something is wrong, try disabling all of the options below."
           ],
-          "unusual-spaces": "소환수도 아닌데 이름에 띄어쓰기가 있음",
-          "jobless": "클래스/잡이 비어있음",
-          "not-combatant": "전투직이 아님"
+          "unusual-spaces": "Name contains space, but not a pet (Korea Server Only)",
+          "jobless": "Class/Job is empty",
+          "not-combatant": "Not a Disciple of War/Magic"
         },
         "css": "CSS"
       },
       "info": {
-        "_": "정보",
-        "created-by": "만든 사람",
-        "servers": "라무 @ Elemental / 카벙클 / 초코보",
-        "hibiya": "쿠리야마 '이네무리' 히비야",
-        "support": "지원 / 문제 해결",
-        "license": "라이센스",
-        "icon-files": "share/img/class 안의 모든 파일에 대하여,",
+        "_": "About",
+        "created-by": "Created by",
+        "servers": "Rhamu @ Elemental / Carbuncle @ KR / Chocobo @ KR",
+        "hibiya": "hibiya inemuri / kuriyama hibiya",
+        "support": "Support",
+        "license": "License",
+        "icon-files": "All files under share/img/class,",
         "privacy": {
-          "_": "개인정보",
+          "_": "Privacy Policy",
           "list": [
-            "이 프로그램이 작동하는 중 문제가 발생할 시, 문제 해결을 위한 정보가<br />서버로 전송될 수 있습니다.",
-            "수집되는 정보는 문제를 식별하기 위한 최소한의 정보로 제한됩니다:",
-            "* 프로그램 버전<br />* 마지막 전투 데이터<br />* ravenjs가 수집하는 기타 정보"
+            "If a problem occurs during operation of this program,<br />information for troubleshooting can be sent to the server.",
+            "Collected information is limited to a minimum amount needed to identify the problem:",
+            "* Program Version<br />* Last Combatant Data<br />* Other information collected by ravenjs"
           ]
         }
       }
@@ -163,134 +163,129 @@
   },
   "config": {
     "style": {
-      "_": "스타일",
-      "resize-factor": "UI 크기 조절",
-      "body-margin": "바깥쪽 여백",
-      "body-font": "본문 폰트",
-      "nav-opacity": "비활성 시 상단 바 투명도",
-      "accent-color": "강조",
-      "shadow-card": "오버레이 창",
-      "shadow-text": "텍스트",
-      "content-align": "내용 정렬",
-      "font-size-small": "작은 글자 크기",
-      "gauge-height": "게이지 높이",
-      "graph-height": "테이블 한 줄 높이"
+      "_": "Style",
+      "resize-factor": "UI scale",
+      "body-margin": "Outer margin",
+      "body-font": "Font family",
+      "nav-opacity": "Navbar opacity when inactive",
+      "accent-color": "Accent",
+      "shadow-card": "Window",
+      "shadow-text": "Text",
+      "content-align": "Content text alignment",
+      "font-size-small": "'Small' fontsize",
+      "gauge-height": "Gauge height",
+      "graph-height": "Table line height"
     },
     "color": {
-      "_": "게이지 색상",
-      "gauge-default": "기본 색상",
-      "gauge-opacity": "투명도",
-      "position-tank": "방어 역할",
-      "position-deal": "공격 역할",
-      "position-heal": "회복 역할",
-      "pld": "나이트 (검술사)",
-      "war": "전사 (도끼술사)",
-      "drk": "암흑기사",
-      "gnb": "건브레이커",
-      "mnk": "몽크 (격투사)",
-      "drg": "용기사 (창술사)",
-      "brd": "음유시인 (궁술사)",
-      "nin": "닌자 (쌍검사)",
-      "smn": "소환사 (비술사)",
-      "blm": "흑마도사 (주술사)",
-      "mch": "기공사",
-      "sam": "사무라이",
-      "rdm": "적마도사",
-      "blu": "청마도사",
-      "dnc": "무희",
-      "whm": "백마도사 (환술사)",
-      "sch": "학자",
-      "ast": "점성술사",
-      "smn-pet": "소환사 (비술사) 소환수",
-      "sch-pet": "학자 소환수",
-      "mch-pet": "기공사 포탑",
-      "chocobo": "초코보",
-      "limit-break": "리밋 브레이크"
+      "_": "Guage Color",
+      "gauge-default": "Default",
+      "gauge-opacity": "Opacity",
+      "position-tank": "Tank",
+      "position-deal": "DPS",
+      "position-heal": "Heal",
+      "pld": "Paladin (Gladiator)",
+      "war": "Warrior (Marauder)",
+      "drk": "Dark Knight",
+      "gnb": "Gunbreaker",
+      "mnk": "Monk (Pugilist)",
+      "drg": "Dragoon (Lancer)",
+      "brd": "Bard (Archer)",
+      "nin": "Ninja (Rogue)",
+      "smn": "Summoner (Arcanist)",
+      "blm": "Black Mage (Thaumaturge)",
+      "mch": "Machinist",
+      "sam": "Samurai",
+      "rdm": "Red Mage",
+      "blu": "Blue Mage",
+      "dnc": "Dancer",
+      "whm": "White Mage (Conjurer)",
+      "sch": "Scholar",
+      "ast": "Astrologian",
+      "smn-pet": "Summoner (Arcanist) Carbuncle/Egi",
+      "sch-pet": "Scholar Egi",
+      "mch-pet": "Machinist Turret",
+      "chocobo": "Chocobo",
+      "limit-break": "Limit Break"
     },
     "format": {
       "language": "Language",
       "significant_digit": {
-        "_": "소수점 정확도",
+        "_": "Decimal accuracy",
         "dps": "DPS",
         "hps": "HPS",
-        "accuracy": "실패율 (미스 수 / 타격 수)",
-        "critical": "극대화 비율"
+        "accuracy": "Failure (Miss / Swing)",
+        "critical": "% of Critical hits/heals"
       },
-      "myname": "내 이름",
-      "use_short_name": "이름을 이니셜로 표시 (글로벌 서버용)",
-      "use_skill_aliases": "스킬 이름 약칭 사용 (글로벌 서버용)",
-      "use_tailing_pct": "비율 값 뒤에 % 기호를 표시",
-      "small_lower_numbers": "DPS 값의 1000 미만을 작게 표시"
+      "myname": "My name",
+      "use_short_name": "Player Name Appearance",
+      "use_skill_aliases": "Use skillname aliases",
+      "use_tailing_pct": "Display % after percentage value",
+      "small_lower_numbers": "Smaller font for under-k digits of DPS"
     },
     "element": {
-      "narrow_nav": "상단바를 얇게"
+      "narrow_nav": "Narrower Top navigation bar"
     }
   },
   "col": {
     "i": {
-      "_": "정보",
-      "icon": [" ", "직업 아이콘"],
-      "class": ["직업", "클래스/잡"],
-      "owner": ["주인", "주인"],
-      "name": ["이름", "이름"]
+      "_": "Info",
+      "icon": [" ", "Class Icon"],
+      "class": ["Cls", "Class/Job"],
+      "owner": ["Owner", "Owner"],
+      "name": ["Name", "Name"]
     },
     "deal": {
-      "_": "딜",
-      "per_second": ["DPS", "DPS"],
-      "pct": ["딜%", "기여율"],
-      "total": ["딜", "합계"],
-      "failure": ["실패", "실패율 (빗나감 / 타격)"],
-      "accuracy": ["명중", "명중율 (1 - 빗나감 / 타격)"],
-      "swing": ["타격", "타격 횟수"],
-      "miss": ["빗나감", "빗나간 횟수"],
-      "hitfail": ["막힘", "막힌 횟수"],
-      "critical": ["극대", "극대화 비율"],
-      "direct": ["DH%", "직격 비율"],
-      "crit_direct": ["!!!", "극대+직격 비율 (!!!)"],
-      "crittypes": ["D/!/!!!", "극대 모아보기 (D/!/!!!)"],
-      "max": ["Max", "Maxhit (스킬명 제외)"],
-      "maxskill": ["Max", "Maxhit (스킬명만)"],
+      "_": "DPS",
+      "per_second": ["DPS", "per Second"],
+      "pct": ["D%", "Deal %"],
+      "total": ["D.Tot", "Total"],
+      "failure": ["Fail", "Failure (Miss / Swing)"],
+      "accuracy": ["Acc.", "Accuracy (1 - Miss / Swing)"],
+      "swing": ["Hit", "Hits"],
+      "miss": ["Miss", "Misses"],
+      "hitfail": ["HitF", "Hitfail"],
+      "critical": ["CH", "Critical Hit%"],
+      "last20Crit": ["20s", "Crit % for Last 20s"],
+      "direct": ["DH", "Direct Hit%"],
+      "crit_direct": ["!!!", "Critical Direct Hit% (!!!)"],
+      "crittypes": ["D/!/!!!", "Direct/Critical/!!! Count"],
+      "max": ["Max", "Maxhit (w/o skillname)"],
+      "maxskill": ["Max", "Maxhit (skillname only)"],
       "maxhit": ["Maxhit", "Maxhit"],
-      "last10": ["10초", "최근 10초 DPS"],
-      "last30": ["30초", "최근 30초 DPS"],
-      "last60": ["1분", "최근 1분 DPS"],
-      "last180": ["3분", "최근 3분 DPS (베타)"]
+      "last10": ["10s", "DPS for Last 10s"],
+      "last30": ["30s", "DPS for Last 30s"],
+      "last60": ["1m", "DPS for Last 1min"],
+      "last180": ["3m", "DPS for Last 3min (Beta)"]
     },
     "tank": {
-      "_": "탱",
-      "damage": ["받은 뎀", "받은 데미지"],
-      "heal": ["받은 힐", "받은 힐"],
-      "parry": ["받넘", "받아넘기기"],
-      "block": ["회피", "회피"],
-      "threat_delta": ["Th∆", "Threat Delta 값"]
+      "_": "Tank",
+      "damage": ["TakenD", "Damage taken"],
+      "heal": ["HealR", "Healing Received"],
+      "parry": ["Parry", "Parry"],
+      "block": ["Block", "Block"],
+      "threat_delta": ["Th∆", "Threat Delta"]
     },
     "heal": {
-      "_": "힐",
-      "per_second": ["HPS", "HPS"],
-      "pct": ["힐%", "기여율"],
-      "total": ["힐 합계", "합계"],
-      "over": ["Ovr+", "오버힐"],
-      "swing": ["타격", "타격 횟수"],
-      "critical": ["+극대", "극대화 비율"],
-      "cure": ["치료", "치료 (디버프 해제)"],
-      "max": ["MaxH", "Maxhit (스킬명 제외)"],
-      "maxskill": ["MaxH 스킬", "Maxhit (스킬명만)"],
+      "_": "Heal",
+      "per_second": ["HPS", "per Second"],
+      "pct": ["H%", "Heal %"],
+      "total": ["H.Tot", "Total"],
+      "over": ["OvH%", "Overheal"],
+      "swing": ["Swing", "Swings"],
+      "critical": ["HCrit", "Critical%"],
+      "cure": ["Cure", "Cures"],
+      "max": ["MaxH", "Maxhit (w/o skillname)"],
+      "maxskill": ["MaxHS", "Maxhit (skillname only)"],
       "maxhit": ["MaxHeal", "Maxhit"]
     },
     "etc": {
-      "_": "기타",
-      "powerdrain": ["P.drn", "Powerdrain"],
-      "powerheal": ["변환", "자원 변환"],
-      "death": ["사망", "데스카운트"]
+      "_": "Etc",
+      "powerdrain": ["PDrn", "Powerdrain"],
+      "powerheal": ["PHeal", "Powerheal"],
+      "death": ["Dead", "Deathcount"]
     }
   },
   "zone": {
-    "replace": {
-      "Baelsar's Wall": "바엘사르 장성",
-      "Sohm Al (Hard)": "솜 알 (어려움)",
-      "Containment Bay Z1T9": "봉쇄구역 Z1T9",
-      "Containment Bay Z1T9 (Extreme)": "봉쇄구역 Z1T9"
-    },
     "unknown": {}
   },
   "skill": {
@@ -301,16 +296,16 @@
       "Hissatsu: Guren": "Guren",
       "Enchanted Redoublement": "E.Redoubl",
       "Refulgent Arrow": "Ref.Arrow",
-      "Technical Finish": "Tech Fin.",
-      "Single Technical Finish": "1x Tech Fin.",
-      "Double Technical Finish": "2x Tech Fin.",
-      "Triple Technical Finish": "3x Tech Fin.",
-      "Quadruple Technical Finish": "4x Tech Fin.",
-      "Standard Finish": "Std Fin.",
-      "Single Standard Finish": "1x Std Fin.",
-      "Double Standard Finish": "2x Std Fin.",
+      "Technical Finish": "Tech Fin",
+      "Single Technical Finish": "1x Tech Fin",
+      "Double Technical Finish": "2x Tech Fin",
+      "Triple Technical Finish": "3x Tech Fin",
+      "Quadruple Technical Finish": "4x Tech Fin",
+      "Standard Finish": "Std Fin",
+      "Single Standard Finish": "1x Std Fin",
+      "Double Standard Finish": "2x Std Fin",
       "Reverse Cascade": "Rev.Cascade",
-      "Rising Windmill": "Ris.Windmill"
+      "Rising Windmill": "Ris.Wndmill"
     }
   }
 }
