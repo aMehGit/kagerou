@@ -4,7 +4,7 @@
 
   const liRender = (_, locale) => {
     let head = `<b data-locale="col.${_.split('.')[0]}._">..</b>`
-    let label = `<span data-locale="col.${_}.1">...</span>`
+    let label = `<span data-locale="col.${_}.1">0</span>`
     return `<li data-id="${_}">${head}: ${label}</li>`
   }
 
@@ -36,8 +36,8 @@
       this.firstTab = true
 
       this.selections = COLUMN_SORTABLE.map(_ => {
-        let head = `<span data-locale="col.${_.split('.')[0]}._">...</span>`
-        let label = `<span data-locale="col.${_}.1">...</span>`
+        let head = `<span data-locale="col.${_.split('.')[0]}._">0</span>`
+        let label = `<span data-locale="col.${_}.1">0</span>`
         return `<option value="${_}" data-locale="col.${_.split('.')[0]}._+: +col.${_}.1"></option>`
       }).join('')
 
