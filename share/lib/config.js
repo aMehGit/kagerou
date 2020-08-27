@@ -111,6 +111,7 @@ const CONFIG_DEFAULT = {
     '_deal-last30': 3.5,
     '_deal-last60': 3.5,
     '_deal-last180': 3.5,
+    '_deal-last20Crit': 2.5,
     '_heal-critical': 2,
     '_tank-damage': 4,
     '_tank-heal': 4,
@@ -231,7 +232,7 @@ const COLUMN_MERGEABLE = [
   'enchps', 'healed', 'healed%',
   'heals', 'critheals', 'cures',
   'powerdrain', 'powerheal',
-  'Last10DPS', 'Last30DPS', 'Last60DPS'
+  'Last10DPS', 'Last30DPS', 'Last60DPS', 'Last20Crit'
 ]
 const COLUMN_USE_LARGER = {
   'MAXHIT': ['MAXHIT', 'maxhit'],
@@ -447,7 +448,14 @@ const COLUMN_INDEX = {
       f: (_, conf) => {
         return isNaN(_)? '0' : formatDps(_, conf.format.significant_digit.dps)
       }
+    },
+    last20Crit: {
+      v: _ => 'DirectHitCount' in _? (parseInt(_.DirectHitCount) || 0) / (parseInt(_.swings) || 1) * 100 : null,
+      f: (_, conf) => _ !== null?
+        _.toFixed(conf.format.significant_digit.critical) +
+        (conf.format.use_tailing_pct? '<small>%</small>' : '') : '-'
     }/*,
+    
     last180: {
       v: _ => 'Last180DPS' in _? _.Last180 : NaN
     }*/
