@@ -101,7 +101,7 @@ const CONFIG_DEFAULT = {
     '_deal-miss': 2.5,
     '_deal-hitfail': 2.5,
     '_deal-critical': 2.5,
-    '_deal-last20Crit': 2.5,
+    '_deal-last20crit': 2.5,
     '_deal-direct': 2.5,
     '_deal-crit_direct': 2.5,
     '_deal-crittypes': 4,
@@ -400,7 +400,7 @@ const COLUMN_INDEX = {
       f: (_, conf) => _.toFixed(conf.format.significant_digit.critical) +
                       (conf.format.use_tailing_pct? '<small>%</small>' : '')
     },
-    last20Crit: {
+    last20crit: {
       v: _ => (parseInt(_.crithits) || 0) / (parseInt(_.swings) || 1) * 100,
       f: (_, conf) => _.toFixed(conf.format.significant_digit.critical) +
                       (conf.format.use_tailing_pct? '<small>%</small>' : '')
@@ -454,7 +454,6 @@ const COLUMN_INDEX = {
         return isNaN(_)? '0' : formatDps(_, conf.format.significant_digit.dps)
       }
     }/*,
-    
     last180: {
       v: _ => 'Last180DPS' in _? _.Last180 : NaN
     }*/
