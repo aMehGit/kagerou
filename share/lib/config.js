@@ -101,6 +101,7 @@ const CONFIG_DEFAULT = {
     '_deal-miss': 2.5,
     '_deal-hitfail': 2.5,
     '_deal-critical': 2.5,
+    '_deal-last20Crit': 2.5,
     '_deal-direct': 2.5,
     '_deal-crit_direct': 2.5,
     '_deal-crittypes': 4,
@@ -111,7 +112,7 @@ const CONFIG_DEFAULT = {
     '_deal-last30': 3.5,
     '_deal-last60': 3.5,
     '_deal-last180': 3.5,
-    '_deal-last20Crit': 2.5,
+    
     '_heal-critical': 2,
     '_tank-damage': 4,
     '_tank-heal': 4,
