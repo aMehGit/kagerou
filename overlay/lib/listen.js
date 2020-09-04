@@ -1,7 +1,7 @@
 'use strict'
 // wtf
 
-let prevFightDuration = 0;
+let lastKnownDuration = 0;
 let shouldResetAddedData = false;
 
 let index30 = 0;
