@@ -1,4 +1,4 @@
-//'use strict'
+'use strict'
 
 let lastParseData = null;
 
@@ -25,7 +25,8 @@ function updatetLast30CritData(parseData) {
     const playerName = parseData[i].name;
     last30CritData[playerName][index30] = parseInt(parseData[i].crithits) / parseInt(parseData[i].swings);
   }
-  incrementIndex30();
+  ++index30;
+  //incrementIndex30();
 }
 
 function addLast30DataToParseData(parseData) {
