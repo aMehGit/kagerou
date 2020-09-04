@@ -1,5 +1,5 @@
 'use strict'
-
+// wtf
 
 let prevFightDuration = 0;
 let shouldResetAddedData = false;
