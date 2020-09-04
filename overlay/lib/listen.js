@@ -1,6 +1,4 @@
 'use strict'
-let someCount = 0;
-
 let lastParseData = null;
 
 let index30 = 0;
@@ -65,7 +63,6 @@ function addLast30DataToParseData(parseData) {
     }
 
     update(data) {
-      ++someCount;
       this.isActive = data.isActive
       this.header = data.Encounter
       this.data = toArray(data.Combatant)
