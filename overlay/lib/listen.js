@@ -52,9 +52,9 @@ function addLast30DataToParseData(parseData) {
 
     constructor(data) {
       // reconstruct
-      newDataInitHandler(data.Combatant);
-      updatetLast30CritData(data.Combatant);
-      addLast30DataToParseData(data.Combatant);
+      newDataInitHandler(data);
+      updatetLast30CritData(data);
+      addLast30DataToParseData(data);
       
       this.update(data)
       this.isCurrent = true
