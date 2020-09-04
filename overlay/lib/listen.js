@@ -1,20 +1,43 @@
 'use strict'
 let someCount = 0;
-/*
+
 let lastParseData = null;
+
+let index30 = 0;
+function incrementIndex30() { index30 = (index30 + 1) - 30 * (index30 == 30); }
+
 let last30CritData = {}; //key, object pair: name (str), crit%EachSec (arr 30)
 
-function initLast30CritData(parseData) {
+function newDataInitHandler() {
   if (parseData != lastParseData) {
+    index30 = 0;
     last30CritData = {};
-    lastParseData = parseData;
+    lastParseData = this.data;
   }
-  for (let i = 0; != parseData.length; ++i) {
-    const playerName = parseData[i].name;
-    last30CritData[playerName] = new Array(0);
+  for (let i = 0; != this.data.length; ++i) {
+    const playerName = this.data[i].name;
+    if (!last30CritData.hasOwnProperty(playerName))
+      last30CritData[playerName] = new Array(0);
   }
 }
-*/
+
+function updatetLast30CritData() {
+  for (let i = 0; != this.data.length; ++i) {
+    const playerName = this.data[i].name;
+    last30CritData[playerName][index30] = parseInt(this.data[i].crithits) / parseInt(this.data[i].swings);
+  }
+  incrementIndex30();
+}
+
+function addLast30DataToParseData() {
+  for (let i = 0; != this.data.length; ++i) {
+    const playerName = this.data[i].name;
+    const nonZeroCritData = last30CritData[playerName].filter(critChance => critChance > 0);
+    const last30CritAvg = nonZeroCritData.reduce((acc, value) => acc + value) / nonZeroCritData.length;
+    this.data[i][last30Crit] = last30CritAvg;
+  }
+}
+
 ;(function() {
 
   const NICK_REGEX = / \(([\uac00-\ud7a3']{1,9}|[A-Z][a-z' ]{0,15})\)$/
@@ -32,10 +55,13 @@ function initLast30CritData(parseData) {
     constructor(data) {
       // reconstruct
       this.update(data)
-      //initLast30CritData(this.data)
       this.isCurrent = true
       this.saveid = `kagerou_save_${Date.now()}` +
           sanitize(this.header.CurrentZoneName)
+      
+      newDataInitHandler();
+      updatetLast30CritData();
+      addLast30DataToParseData();
     }
 
     update(data) {
