@@ -68,12 +68,13 @@ function compileAddedData(parseData) {
       this.data = toArray(data.Combatant)
       this.calculateMax(data.Combatant)
       
-      shouldResetAddedData = (this.header.DURATION < lastKnownDuration);
+      shouldResetAddedData = (this.header.DURATION <= lastKnownDuration);
       lastKnownDuration = this.header.DURATION;
       addedDataResetHandler();
       initAddedData(this.data);
+      index30 = this.header.DURATION % 30;
       updateAddedData(this.data);
-      incrementIndex30();
+      //incrementIndex30();
       compileAddedData(this.data);
     }
 
