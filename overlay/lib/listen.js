@@ -32,7 +32,7 @@ function initLast30CritData(parseData) {
     constructor(data) {
       // reconstruct
       this.update(data);
-      ++someCount;
+      ++someCount
       //initLast30CritData(this.data)
       this.isCurrent = true
       this.saveid = `kagerou_save_${Date.now()}` +
