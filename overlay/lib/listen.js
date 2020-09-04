@@ -1,5 +1,5 @@
 'use strict'
-/*
+
 let lastParseData = null;
 
 let index30 = 0;
@@ -36,7 +36,7 @@ function addLast30DataToParseData(parseData) {
     parseData["last30Crit"] = last30CritAvg;
   }
 }
-*/
+
 ;(function() {
 
   const NICK_REGEX = / \(([\uac00-\ud7a3']{1,9}|[A-Z][a-z' ]{0,15})\)$/
