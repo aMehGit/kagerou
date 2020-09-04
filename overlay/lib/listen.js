@@ -14,7 +14,7 @@ function newDataInitHandler() {
     last30CritData = {};
     lastParseData = this.data;
   }
-  for (let i = 0; != this.data.length; ++i) {
+  for (let i = 0; i != this.data.length; ++i) {
     const playerName = this.data[i].name;
     if (!last30CritData.hasOwnProperty(playerName))
       last30CritData[playerName] = new Array(0);
@@ -22,7 +22,7 @@ function newDataInitHandler() {
 }
 
 function updatetLast30CritData() {
-  for (let i = 0; != this.data.length; ++i) {
+  for (let i = 0; i != this.data.length; ++i) {
     const playerName = this.data[i].name;
     last30CritData[playerName][index30] = parseInt(this.data[i].crithits) / parseInt(this.data[i].swings);
   }
@@ -30,7 +30,7 @@ function updatetLast30CritData() {
 }
 
 function addLast30DataToParseData() {
-  for (let i = 0; != this.data.length; ++i) {
+  for (let i = 0; i != this.data.length; ++i) {
     const playerName = this.data[i].name;
     const nonZeroCritData = last30CritData[playerName].filter(critChance => critChance > 0);
     const last30CritAvg = nonZeroCritData.reduce((acc, value) => acc + value) / nonZeroCritData.length;
