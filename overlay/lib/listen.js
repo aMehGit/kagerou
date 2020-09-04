@@ -16,7 +16,7 @@ function newDataInitHandler(parseData) {
   for (let i = 0; i != parseData.length; ++i) {
     const playerName = parseData[i].name;
     if (!last30CritData.hasOwnProperty(playerName))
-      last30CritData[playerName] = new Array(0);
+      last30CritData[playerName] = new Array(0).fill(0);
   }
 }
 
@@ -33,7 +33,7 @@ function addLast30DataToParseData(parseData) {
     const playerName = parseData[i].name;
     const nonZeroCritData = last30CritData[playerName].filter(critChance => critChance > 0);
     const last30CritAvg = nonZeroCritData.reduce((acc, value) => acc + value) / nonZeroCritData.length;
-    parseData["last30Crit"] = last30CritAvg;
+    parseData.last30Crit = last30CritAvg;
   }
 }
 
