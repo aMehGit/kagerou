@@ -1,6 +1,6 @@
 'use strict'
 let someCount = 0;
-
+/*
 let lastParseData = null;
 let last30CritData = {}; //key, object pair: name (str), crit%EachSec (arr 30)
 
@@ -14,7 +14,7 @@ function initLast30CritData(parseData) {
     last30CritData[playerName] = new Array(0);
   }
 }
-
+*/
 ;(function() {
 
   const NICK_REGEX = / \(([\uac00-\ud7a3']{1,9}|[A-Z][a-z' ]{0,15})\)$/
@@ -31,7 +31,7 @@ function initLast30CritData(parseData) {
 
     constructor(data) {
       // reconstruct
-      this.update(data);
+      this.update(data)
       ++someCount
       //initLast30CritData(this.data)
       this.isCurrent = true
