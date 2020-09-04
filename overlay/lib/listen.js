@@ -1,4 +1,5 @@
 'use strict'
+let someCount = 0;
 
 ;(function() {
 
