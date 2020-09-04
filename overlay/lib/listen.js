@@ -59,9 +59,9 @@ function addLast30DataToParseData(parseData) {
       this.saveid = `kagerou_save_${Date.now()}` +
           sanitize(this.header.CurrentZoneName)
       
-      //newDataInitHandler(this.data);
-      //updatetLast30CritData(this.data);
-      //addLast30DataToParseData(this.data);
+      newDataInitHandler(this.data);
+      updatetLast30CritData(this.data);
+      addLast30DataToParseData(this.data);
     }
 
     update(data) {
