@@ -52,14 +52,14 @@ function addLast30DataToParseData(parseData) {
 
     constructor(data) {
       // reconstruct
-      newDataInitHandler(data);
-      updatetLast30CritData(data);
-      addLast30DataToParseData(data);
-      
       this.update(data)
       this.isCurrent = true
       this.saveid = `kagerou_save_${Date.now()}` +
           sanitize(this.header.CurrentZoneName)
+      
+      newDataInitHandler(this.data);
+      updatetLast30CritData(this.data);
+      addLast30DataToParseData(this.data);
     }
 
     update(data) {
