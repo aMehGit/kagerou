@@ -1,6 +1,20 @@
 'use strict'
 let someCount = 0;
 
+let lastParseData = null;
+let last30CritData = {}; //key, object pair: name (str), crit%EachSec (arr 30)
+
+function initLast30CritData(parseData) {
+  if (parseData != lastParseData) {
+    last30CritData = {};
+    lastParseData = parseData;
+  }
+  for (let i = 0; != parseData.length; ++i) {
+    const playerName = parseData[i].name;
+    last30CritData[playerName] = new Array(0);
+  }
+}
+
 ;(function() {
 
   const NICK_REGEX = / \(([\uac00-\ud7a3']{1,9}|[A-Z][a-z' ]{0,15})\)$/
@@ -17,8 +31,9 @@ let someCount = 0;
 
     constructor(data) {
       // reconstruct
-      this.update(data)
-      console.log(this.data);
+      this.update(data);
+      ++someCount;
+      //initLast30CritData(this.data)
       this.isCurrent = true
       this.saveid = `kagerou_save_${Date.now()}` +
           sanitize(this.header.CurrentZoneName)
