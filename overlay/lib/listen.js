@@ -32,7 +32,6 @@ function initLast30CritData(parseData) {
     constructor(data) {
       // reconstruct
       this.update(data)
-      ++someCount
       //initLast30CritData(this.data)
       this.isCurrent = true
       this.saveid = `kagerou_save_${Date.now()}` +
@@ -40,6 +39,7 @@ function initLast30CritData(parseData) {
     }
 
     update(data) {
+      ++someCount;
       this.isActive = data.isActive
       this.header = data.Encounter
       this.data = toArray(data.Combatant)
