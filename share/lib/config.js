@@ -401,7 +401,7 @@ const COLUMN_INDEX = {
                       (conf.format.use_tailing_pct? '<small>%</small>' : '')
     },
     last20crit: {
-      v: _ => index30,
+      v: _ => index30 + 1,
       f: (_, conf) => _.toFixed(conf.format.significant_digit.critical) +
                       (conf.format.use_tailing_pct? '<small>%</small>' : '')
     },
