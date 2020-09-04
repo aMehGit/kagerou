@@ -18,7 +18,7 @@ let someCount = 0;
     constructor(data) {
       // reconstruct
       this.update(data)
-      console.log(data);
+      console.log(this.data);
       this.isCurrent = true
       this.saveid = `kagerou_save_${Date.now()}` +
           sanitize(this.header.CurrentZoneName)
