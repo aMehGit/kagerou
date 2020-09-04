@@ -32,7 +32,7 @@ function addLast30DataToParseData(parseData) {
     const playerName = parseData[i].name;
     const nonZeroCritData = last30CritData[playerName].filter(critChance => critChance > 0);
     const last30CritAvg = nonZeroCritData.reduce((acc, value) => acc + value) / nonZeroCritData.length;
-    this.data[i]["last30Crit"] = last30CritAvg;
+    parseData["last30Crit"] = last30CritAvg;
   }
 }
 
