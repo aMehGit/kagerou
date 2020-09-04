@@ -8,33 +8,33 @@ function incrementIndex30() { index30 = (index30 + 1) - 30 * (index30 == 30); }
 
 let last30CritData = {}; //key, object pair: name (str), crit%EachSec (arr 30)
 
-function newDataInitHandler() {
-  if (this.data != lastParseData) {
+function newDataInitHandler(parseData) {
+  if (parseData != lastParseData) {
     index30 = 0;
     last30CritData = {};
-    lastParseData = this.data;
+    lastParseData = parseData;
   }
-  for (let i = 0; i != this.data.length; ++i) {
-    const playerName = this.data[i].name;
+  for (let i = 0; i != parseData.length; ++i) {
+    const playerName = parseData[i].name;
     if (!last30CritData.hasOwnProperty(playerName))
       last30CritData[playerName] = new Array(0);
   }
 }
 
-function updatetLast30CritData() {
-  for (let i = 0; i != this.data.length; ++i) {
-    const playerName = this.data[i].name;
-    last30CritData[playerName][index30] = parseInt(this.data[i].crithits) / parseInt(this.data[i].swings);
+function updatetLast30CritData(parseData) {
+  for (let i = 0; i != parseData.length; ++i) {
+    const playerName = parseData[i].name;
+    last30CritData[playerName][index30] = parseInt(parseData[i].crithits) / parseInt(parseData[i].swings);
   }
   incrementIndex30();
 }
 
-function addLast30DataToParseData() {
-  for (let i = 0; i != this.data.length; ++i) {
-    const playerName = this.data[i].name;
+function addLast30DataToParseData(parseData) {
+  for (let i = 0; i != parseData.length; ++i) {
+    const playerName = parseData[i].name;
     const nonZeroCritData = last30CritData[playerName].filter(critChance => critChance > 0);
     const last30CritAvg = nonZeroCritData.reduce((acc, value) => acc + value) / nonZeroCritData.length;
-    this.data[i][last30Crit] = last30CritAvg;
+    parseData[i][last30Crit] = last30CritAvg;
   }
 }
 
@@ -54,14 +54,14 @@ function addLast30DataToParseData() {
 
     constructor(data) {
       // reconstruct
+      newDataInitHandler(data.Combatant);
+      updatetLast30CritData(data.Combatant);
+      addLast30DataToParseData(data.Combatant);
+      
       this.update(data)
       this.isCurrent = true
       this.saveid = `kagerou_save_${Date.now()}` +
           sanitize(this.header.CurrentZoneName)
-      
-      newDataInitHandler();
-      updatetLast30CritData();
-      addLast30DataToParseData();
     }
 
     update(data) {
