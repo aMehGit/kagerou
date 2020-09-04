@@ -1,5 +1,46 @@
 'use strict'
 
+
+let prevFightDuration = 0;
+let shouldResetAddedData = false;
+
+let index30 = 0;
+function incrementIndex30() { index30 = (index30 + 1) - 30 * (index30 == 30); }
+
+let last30CritData = {}; //key, object pair: name (str), crit%EachSec (arr 30)
+
+function addedDataResetHandler() {
+  if (shouldResetAddedData) {
+    index30 = 0;
+    last30CritData = {};
+    shouldResetAddedData = false;
+  }
+}
+
+function initAddedData(parseData) {
+  for (let i = 0; i != parseData.length; ++i) {
+    const playerName = parseData[i].name;
+    if (!last30CritData.hasOwnProperty(playerName))
+      last30CritData[playerName] = new Array(0).fill(0);
+  }
+}
+
+function updateAddedData(parseData) {
+  for (let i = 0; i != parseData.length; ++i) {
+    const playerName = parseData[i].name;
+    last30CritData[playerName][index30] = parseInt(parseData[i].crithits) / parseInt(parseData[i].swings);
+  }
+}
+
+function compileAddedData(parseData) {
+  for (let i = 0; i != parseData.length; ++i) {
+    const playerName = parseData[i].name;
+    const nonZeroCritData = last30CritData[playerName].filter(critChance => critChance > 0);
+    const last30CritAvg = nonZeroCritData.reduce((acc, value) => acc + value) / nonZeroCritData.length;
+    parseData[i].last30Crit = index30;
+  }
+}
+
 ;(function() {
 
   const NICK_REGEX = / \(([\uac00-\ud7a3']{1,9}|[A-Z][a-z' ]{0,15})\)$/
@@ -26,6 +67,14 @@
       this.header = data.Encounter
       this.data = toArray(data.Combatant)
       this.calculateMax(data.Combatant)
+      
+      shouldResetAddedData = (this.header.DURATION < lastKnownDuration);
+      lastKnownDuration = this.header.DURATION;
+      addedDataResetHandler();
+      initAddedData(this.data);
+      updateAddedData(this.data);
+      incrementIndex30();
+      compileAddedData(this.data);
     }
 
     get(sort, merged) {
