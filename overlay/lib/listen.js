@@ -28,15 +28,18 @@ function initAddedData(parseData) {
   }
 }
 
-function updateAddedData(parseData) {
+function updateAddedData(parseData, headerDuration) {
+  const durationDelta = headerDuration - lastKnownDuration;
   for (let i = 0; i != parseData.length; ++i) {
     const playerName = parseData[i].name;
     const crithits = parseInt(parseData[i].crithits);
     const swings = parseInt(parseData[i].swings);
     const critChance = (crithits - last30CritData[playerName][index30][0]) / (swings - last30CritData[playerName][index30][1]);
     parseData[i].last30Crit = critChance;
-    last30CritData[playerName][index30][0] = crithits;
-    last30CritData[playerName][index30][1] = swings;
+    for (let j = index30; (j != durationDelta) || (j != 30); ++j) {
+      last30CritData[playerName][j][0] = crithits;
+      last30CritData[playerName][j][1] = swings;
+    }
   }
 }
 
@@ -68,12 +71,13 @@ function updateAddedData(parseData) {
       this.calculateMax(data.Combatant)
       
       shouldResetAddedData = (this.header.DURATION < lastKnownDuration);
-      lastKnownDuration = this.header.DURATION;
+      
       addedDataResetHandler();
       initAddedData(this.data);
-      //index30 = this.header.DURATION % 30;
+      index30 = this.header.DURATION % 30;
       updateAddedData(this.data);
-      incrementIndex30();
+      //incrementIndex30();
+      lastKnownDuration = this.header.DURATION;
     }
 
     get(sort, merged) {
