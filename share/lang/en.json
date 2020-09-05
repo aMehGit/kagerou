@@ -245,7 +245,7 @@
       "miss": ["Miss", "Misses"],
       "hitfail": ["HitF", "Hitfail"],
       "critical": ["CH", "Critical Hit%"],
-      "last20crit": ["20s", "Crit % for Last 20s"],
+      "last60crit": ["60s CH", "Crit % for Last 60s"],
       "direct": ["DH", "Direct Hit%"],
       "crit_direct": ["!!!", "Critical Direct Hit% (!!!)"],
       "crittypes": ["D/!/!!!", "Direct/Critical/!!! Count"],
