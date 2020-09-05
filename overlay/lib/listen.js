@@ -33,8 +33,10 @@ function updateAddedData(parseData, headerDuration) {
     //reset
     const keys = Object.keys(last60CritData);
     for (let i = 0; i != keys.length; ++i) {
-      for(let j = 0; j != 60; ++j)
-        last60CritData[keys[i]][j][0] = last60CritData[keys[i]][j][1] = 0;
+      for(let j = 0; j != 60; ++j) {
+        last60CritData[keys[i]][j][0] = last60CritData[keys[i]][index60][0];
+        last60CritData[keys[i]][j][1] = last60CritData[keys[i]][index60][1];
+      }
     }
     index60 = 0;
     durationDelta = 1;
