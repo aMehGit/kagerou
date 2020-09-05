@@ -21,23 +21,19 @@ function initAddedData(parseData) {
   for (let i = 0; i != parseData.length; ++i) {
     const playerName = parseData[i].name;
     if (!last30CritData.hasOwnProperty(playerName))
-      last30CritData[playerName] = new Array(30).fill(0);
+      last30CritData[playerName] = new Array(30).fill(new Array(2).fill(0));
   }
 }
 
 function updateAddedData(parseData) {
   for (let i = 0; i != parseData.length; ++i) {
     const playerName = parseData[i].name;
-    last30CritData[playerName][index30] = parseInt(parseData[i].crithits) / parseInt(parseData[i].swings);
-  }
-}
-
-function compileAddedData(parseData) {
-  for (let i = 0; i != parseData.length; ++i) {
-    const playerName = parseData[i].name;
-    const critChances = last30CritData[playerName].filter(critChance => critChance > 0);
-    const last30CritAvg = (critChances.length > 0) ? critChances.reduce((acc, value) => acc + value) / critChances.length : 0;
-    parseData[i].last30Crit = last30CritAvg;
+    const crithits = parseInt(parseData[i].crithits);
+    const swings = parseInt(parseData[i].swings);
+    const critChance = (crithits - last30CritData[playerName][index30][0]) / (swings - last30CritData[playerName][index30][1]);
+    parseData[i].last30Crit = critChance;
+    last30CritData[playerName][index30][0] = crithits;
+    last30CritData[playerName][index30][1] = swings;
   }
 }
 
@@ -72,10 +68,9 @@ function compileAddedData(parseData) {
       lastKnownDuration = this.header.DURATION;
       addedDataResetHandler();
       initAddedData(this.data);
-      index30 = this.header.DURATION % 30;
+      //index30 = this.header.DURATION % 30;
       updateAddedData(this.data);
-      //incrementIndex30();
-      compileAddedData(this.data);
+      incrementIndex30();
     }
 
     get(sort, merged) {
