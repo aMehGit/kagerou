@@ -32,6 +32,7 @@ function updateAddedData(parseData, headerDuration) {
   if (durationDelta > 60) { 
     //reset
     const keys = Object.keys(last60CritData);
+    const prevIndex60 = Max(index60 - 1, 0);
     for (let i = 0; i != keys.length; ++i) {
       for(let j = 0; j != 60; ++j) {
         last60CritData[keys[i]][j][0] = last60CritData[keys[i]][index60][0];
