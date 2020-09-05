@@ -35,6 +35,7 @@ function updateAddedData(parseData, headerDuration) {
       for(let i = 0; i != 60; ++i)
         values[0][i][0] = value[i][1] = 0;
     }
+    index60 = 0;
     durationDelta = Math.max(durationDelta % 60, 1);
   }
   
