@@ -1,11 +1,9 @@
 'use strict'
-// wtf
 
 let lastKnownDuration = 0;
 let shouldResetAddedData = false;
 
 let index30 = 0;
-let prevIndex30 = 0;
 function incrementIndex30() { index30 = (index30 + 1) % 30; }
 
 let last30CritData = {}; //key, object pair: name (str), crit%EachSec (arr 30)
@@ -38,12 +36,14 @@ function updateAddedData(parseData, headerDuration) {
     const swings = parseInt(parseData[i].swings);
     const critChance = (crithits - last30CritData[playerName][index30][0]) / (swings - last30CritData[playerName][index30][1]);
     parseData[i].last30Crit = critChance;
+    let index = index30;
     for (let j = 0; j != durationDelta; ++j) {
       last30CritData[playerName][index30][0] = crithits;
       last30CritData[playerName][index30][1] = swings;
-      index30 = (index30 + 1) % 30;
+      index = (index + 1) % 30;
     }
   }
+  index30 = (index30 + durationDelta) % 30;
 }
 
 ;(function() {
