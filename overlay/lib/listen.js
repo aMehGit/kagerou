@@ -38,8 +38,8 @@ function updateAddedData(parseData, headerDuration) {
     parseData[i].last30Crit = critChance;
     let index = index30;
     for (let j = 0; j != durationDelta; ++j) {
-      last30CritData[playerName][index30][0] = crithits;
-      last30CritData[playerName][index30][1] = swings;
+      last30CritData[playerName][index][0] = crithits;
+      last30CritData[playerName][index][1] = swings;
       index = (index + 1) % 30;
     }
   }
