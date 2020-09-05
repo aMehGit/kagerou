@@ -21,7 +21,7 @@ function initAddedData(parseData) {
   for (let i = 0; i != parseData.length; ++i) {
     const playerName = parseData[i].name;
     if (!last30CritData.hasOwnProperty(playerName))
-      last30CritData[playerName] = new Array(30).fill(new Array(2).fill(0));
+      last30CritData[playerName] = new Array(30).map(row => row = new Array(2).fill(0));
   }
 }
 
