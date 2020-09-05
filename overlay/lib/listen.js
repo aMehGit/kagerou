@@ -5,6 +5,7 @@ let lastKnownDuration = 0;
 let shouldResetAddedData = false;
 
 let index30 = 0;
+let prevIndex30 = 0;
 function incrementIndex30() { index30 = (index30 + 1) % 30; }
 
 let last30CritData = {}; //key, object pair: name (str), crit%EachSec (arr 30)
@@ -29,16 +30,18 @@ function initAddedData(parseData) {
 }
 
 function updateAddedData(parseData, headerDuration) {
-  const durationDelta = headerDuration - lastKnownDuration;
+  const durationDelta = Math.max(headerDuration - lastKnownDuration, 1);
+  if (durationDelta > 30) durationDelta = 30;
   for (let i = 0; i != parseData.length; ++i) {
     const playerName = parseData[i].name;
     const crithits = parseInt(parseData[i].crithits);
     const swings = parseInt(parseData[i].swings);
     const critChance = (crithits - last30CritData[playerName][index30][0]) / (swings - last30CritData[playerName][index30][1]);
     parseData[i].last30Crit = critChance;
-    for (let j = index30; (j != durationDelta) || (j != 30); ++j) {
-      last30CritData[playerName][j][0] = crithits;
-      last30CritData[playerName][j][1] = swings;
+    for (let j = 0; j != durationDelta; ++j) {
+      last30CritData[playerName][index30][0] = crithits;
+      last30CritData[playerName][index30][1] = swings;
+      index30 = (index30 + 1) % 30;
     }
   }
 }
@@ -71,11 +74,11 @@ function updateAddedData(parseData, headerDuration) {
       this.calculateMax(data.Combatant)
       
       shouldResetAddedData = (this.header.DURATION < lastKnownDuration);
+      //index30 = this.header.DURATION % 30;
       addedDataResetHandler();
       initAddedData(this.data);
       updateAddedData(this.data, this.header.DURATION);
       //incrementIndex30();
-      index30 = this.header.DURATION % 30;
       lastKnownDuration = this.header.DURATION;
     }
 
