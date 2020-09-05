@@ -45,6 +45,7 @@ const CONFIG_DEFAULT = {
         'deal.pct',
         'deal.per_second',
         'deal.critical',
+        'deal.last60crit'
         'deal.direct',
         'deal.crit_direct'
       ]
