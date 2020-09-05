@@ -31,9 +31,10 @@ function updateAddedData(parseData, headerDuration) {
   let durationDelta = Math.max(headerDuration - lastKnownDuration, 1);
   if (durationDelta > 60) { 
     //reset
-    for (let values of Object.values(last60CritData)) {
-      for(let i = 0; i != 60; ++i)
-        values[i][0] = values[i][1] = 0;
+    const keys = Object.keys(last60CritData);
+    for (let i = 0; i != keys.length; ++i) {
+      for(let j = 0; j != 60; ++j)
+        last60CritData[i][j][0] = last60CritData[i][j][1] = 0;
     }
     index60 = 0;
     durationDelta = Math.max(durationDelta % 60, 1);
