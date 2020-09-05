@@ -1,7 +1,7 @@
 'use strict'
 // wtf
 
-let lastKnownDuration = 0;
+let lastData = null;
 let shouldResetAddedData = false;
 
 let index30 = 0;
@@ -67,7 +67,7 @@ function updateAddedData(parseData) {
       this.data = toArray(data.Combatant)
       this.calculateMax(data.Combatant)
       
-      shouldResetAddedData = (this.header.DURATION <= lastKnownDuration);
+      shouldResetAddedData = (data != lastData);
       lastKnownDuration = this.header.DURATION;
       addedDataResetHandler();
       initAddedData(this.data);
