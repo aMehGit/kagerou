@@ -79,6 +79,7 @@ function updateAddedData(parseData, headerDuration) {
       addedDataResetHandler();
       initAddedData(this.data);
       updateAddedData(this.data, duration);
+      lastSaveId = this.saveid;
       lastKnownDuration = duration;
     }
 
