@@ -64,7 +64,7 @@ function updateAddedData(parseData, headerDuration) {
       this.update(data)
       this.isCurrent = true
       this.saveid = `kagerou_save_${Date.now()}` +
-          sanitize(this.header.CurrentZoneName)
+          sanitize(data.Encounter.CurrentZoneName)
     }
 
     update(data) {
