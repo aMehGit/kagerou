@@ -101,7 +101,7 @@ const CONFIG_DEFAULT = {
     '_deal-miss': 2.5,
     '_deal-hitfail': 2.5,
     '_deal-critical': 2.5,
-    '_deal-last20crit': 2.5,
+    '_deal-last60crit': 2.5,
     '_deal-direct': 2.5,
     '_deal-crit_direct': 2.5,
     '_deal-crittypes': 4,
@@ -228,7 +228,7 @@ const COLUMN_SORTABLE = [
 const COLUMN_MERGEABLE = [
   'encdps', 'damage', 'damage%',
   'swings', 'misses', 'hitfailed',
-  'crithits', 'Last20Crit', 'damagetaken', 'healstaken',
+  'crithits', 'last60Crit', 'damagetaken', 'healstaken',
   'enchps', 'healed', 'healed%',
   'heals', 'critheals', 'cures',
   'powerdrain', 'powerheal',
@@ -400,8 +400,8 @@ const COLUMN_INDEX = {
       f: (_, conf) => _.toFixed(conf.format.significant_digit.critical) +
                       (conf.format.use_tailing_pct? '<small>%</small>' : '')
     },
-    last20crit: {
-      v: _ => _.last30Crit * 100,
+    last60crit: {
+      v: _ => _.last60Crit * 100,
       f: (_, conf) => _.toFixed(conf.format.significant_digit.critical) +
                       (conf.format.use_tailing_pct? '<small>%</small>' : '')
     },
