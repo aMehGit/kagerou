@@ -61,10 +61,11 @@ function updateAddedData(parseData, headerDuration) {
   class Data {
     constructor(data) {
       // reconstruct
-      this.update(data)
-      this.isCurrent = true
       this.saveid = `kagerou_save_${Date.now()}` +
           sanitize(data.Encounter.CurrentZoneName)
+      
+      this.update(data)
+      this.isCurrent = true
     }
 
     update(data) {
