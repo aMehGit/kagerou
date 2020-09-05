@@ -5,7 +5,7 @@ let lastKnownDuration = 0;
 let shouldResetAddedData = false;
 
 let index30 = 0;
-function incrementIndex30() { index30 = (index30 + 1) - 30 * (index30 == 30); }
+function incrementIndex30() { index30 = (index30 + 1) % 30; }
 
 let last30CritData = {}; //key, object pair: name (str), crit%EachSec (arr 30)
 
