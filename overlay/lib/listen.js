@@ -28,7 +28,7 @@ function initAddedData(parseData) {
 }
 
 function updateAddedData(parseData, headerDuration) {
-  const durationDelta = Math.max(headerDuration - lastKnownDuration, 1);
+  let durationDelta = Math.max(headerDuration - lastKnownDuration, 1);
   if (durationDelta > 30) durationDelta = 30;
   for (let i = 0; i != parseData.length; ++i) {
     const playerName = parseData[i].name;
