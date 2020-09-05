@@ -68,7 +68,7 @@ function updateAddedData(parseData) {
       this.calculateMax(data.Combatant)
       
       shouldResetAddedData = (data != lastData);
-      lastKnownDuration = this.header.DURATION;
+      lastData = data;
       addedDataResetHandler();
       initAddedData(this.data);
       //index30 = this.header.DURATION % 30;
