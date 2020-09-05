@@ -71,12 +71,12 @@ function updateAddedData(parseData, headerDuration) {
       this.header = data.Encounter
       this.data = toArray(data.Combatant)
       this.calculateMax(data.Combatant)
-      
-      shouldResetAddedData = (this.header.DURATION < lastKnownDuration);
+      const duration = parseInt(this.header.DURATION);
+      shouldResetAddedData = (duration < lastKnownDuration);
       addedDataResetHandler();
       initAddedData(this.data);
-      updateAddedData(this.data, this.header.DURATION);
-      lastKnownDuration = this.header.DURATION;
+      updateAddedData(this.data, duration);
+      lastKnownDuration = duration;
     }
 
     get(sort, merged) {
