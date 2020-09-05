@@ -1,5 +1,6 @@
 'use strict'
 
+let lastSaveId = "";
 let lastKnownDuration = 0;
 let shouldResetAddedData = false;
 
@@ -71,8 +72,10 @@ function updateAddedData(parseData, headerDuration) {
       this.header = data.Encounter
       this.data = toArray(data.Combatant)
       this.calculateMax(data.Combatant)
+      
       const duration = parseInt(this.header.DURATION);
-      shouldResetAddedData = (duration < lastKnownDuration);
+      shouldResetAddedData = (lastSaveId != this.saveid);
+      
       addedDataResetHandler();
       initAddedData(this.data);
       updateAddedData(this.data, duration);
