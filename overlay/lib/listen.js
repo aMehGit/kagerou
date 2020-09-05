@@ -48,7 +48,7 @@ function updateAddedData(parseData, headerDuration) {
     const crithits = parseInt(parseData[i].crithits);
     const swings = parseInt(parseData[i].swings);
     const critChance = (crithits - last60CritData[playerName][index60][0]) / (swings - last60CritData[playerName][index60][1]);
-    parseData[i].last30Crit = critChance;
+    parseData[i].last60Crit = critChance;
     let index = index60;
     for (let j = 0; j != durationDelta; ++j) {
       last60CritData[playerName][index][0] = crithits;
