@@ -37,7 +37,7 @@ function updateAddedData(parseData, headerDuration) {
         last60CritData[keys[i]][j][0] = last60CritData[keys[i]][j][1] = 0;
     }
     index60 = 0;
-    durationDelta = Math.max(durationDelta % 60, 1);
+    durationDelta = 1;
   }
   
   for (let i = 0; i != parseData.length; ++i) {
