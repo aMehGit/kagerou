@@ -29,7 +29,15 @@ function initAddedData(parseData) {
 
 function updateAddedData(parseData, headerDuration) {
   let durationDelta = Math.max(headerDuration - lastKnownDuration, 1);
-  if (durationDelta > 60) durationDelta = 60;
+  if (durationDelta > 60) { 
+    //reset
+    for (let [key, value] of Object.entries(last60CritData)) {
+      for(let i = 0; i != 60; ++i)
+        value[i][0] = value[i][1] = 0;
+    }
+    durationDelta = Math.max(durationDelta % 60, 1);
+  }
+  
   for (let i = 0; i != parseData.length; ++i) {
     const playerName = parseData[i].name;
     const crithits = parseInt(parseData[i].crithits);
