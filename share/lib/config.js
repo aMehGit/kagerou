@@ -50,6 +50,8 @@ const CONFIG_DEFAULT = {
         'deal.pct',
         'deal.per_second',
         'deal.last60crit',
+        'deal.last60dh',
+        'deal.last60critdh',
         'deal.critical',
         'deal.direct',
         'deal.crit_direct',
@@ -73,6 +75,8 @@ const CONFIG_DEFAULT = {
     '_deal-hitfail': 2.5,
     '_deal-critical': 2.5,
     '_deal-last60crit': 2.5,
+    '_deal-last60dh': 2.5,
+    '_deal-last60critdh': 2.5,
     '_deal-direct': 2.5,
     '_deal-crit_direct': 2.5,
     '_deal-crittypes': 4,
@@ -199,7 +203,7 @@ const COLUMN_SORTABLE = [
 const COLUMN_MERGEABLE = [
   'encdps', 'damage', 'damage%',
   'swings', 'misses', 'hitfailed',
-  'crithits', 'last60Crit', 'damagetaken', 'healstaken',
+  'crithits', 'last60Crit', 'last60Dh' ,'last60CritDh', 'damagetaken', 'healstaken',
   'enchps', 'healed', 'healed%',
   'heals', 'critheals', 'cures',
   'powerdrain', 'powerheal',
@@ -373,6 +377,16 @@ const COLUMN_INDEX = {
     },
     last60crit: {
       v: _ => _.last60Crit * 100,
+      f: (_, conf) => _.toFixed(conf.format.significant_digit.critical) +
+                      (conf.format.use_tailing_pct? '<small>%</small>' : '')
+    },
+    last60dh: {
+      v: _ => _.last60Dh * 100,
+      f: (_, conf) => _.toFixed(conf.format.significant_digit.critical) +
+                      (conf.format.use_tailing_pct? '<small>%</small>' : '')
+    },
+    last60critdh: {
+      v: _ => _.last60CritDh * 100,
       f: (_, conf) => _.toFixed(conf.format.significant_digit.critical) +
                       (conf.format.use_tailing_pct? '<small>%</small>' : '')
     },
