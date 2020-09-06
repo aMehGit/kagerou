@@ -125,6 +125,9 @@ const CONFIG_DEFAULT = {
     'limit-break': '#444'
   },
   format: {
+    crit_chance = 0.5,
+    dh_chance = 0.0,
+    crit_dh_chance = 0.0,
     significant_digit: {
       dps: 0,
       hps: 0,
