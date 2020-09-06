@@ -5,7 +5,7 @@ const CODENAME = 'tears proof masquerade'
 const DESCRIPTION = Date.now() > 15959e8? '偽りなき技巧が挑戦への扉を開く' : 'rest in peace, rt-karen.'
 let countAbc = 0;
 const CONFIG_DEFAULT = {
-  lang: 'ko',
+  lang: 'en',
   style: {
     // body
     'resize-factor': 1,
@@ -13,19 +13,19 @@ const CONFIG_DEFAULT = {
     'body-font': "'Lato', 'Source Han Sans', 'Meiryo UI', '맑은 고딕', sans-serif",
     // header / ui
     'nav-opacity': 1,
-    'nav-bg': 'rgba(31, 31, 31, 0.9)',
+    'nav-bg': 'rgba(0, 0, 15,1)',
     'nav-fg': '#ddd',
-    'header-bg': 'rgba(0, 0, 0, 0.5)',
+    'header-bg': 'rgba(0, 0, 15, 1)',
     'dropdown-bg': 'rgba(31, 31, 31, 0.95)',
     'dropdown-fg': '#ddd',
     'content-bg': '', // URL
-    'content-bg-color': 'rgba(0, 0, 0, 0.5)',
+    'content-bg-color': 'rgba(0, 0, 0, 0.15)',
     'content-bg-opacity': 1,
     'content-bg-filter': '',
     'content-fg': '#eee',
     'cell-bg': 'rgba(255, 255, 255, 0.1)',
-    'my-row-fg': 'rgba(179, 229, 252, 1)',
-    'content-align': 'center',
+    'my-row-fg': 'rgba(255, 244, 205, 1)',
+    'content-align': 'left',
     'color-accent': '#26c6da',
     'shadow-card': '0 0.05rem 0.25rem rgba(0, 0, 0, 0.5)',
     'shadow-text': '0 0 0.125em rgba(0, 0, 0, 1)',
@@ -47,45 +47,10 @@ const CONFIG_DEFAULT = {
         'deal.critical',
         'deal.last60crit',
         'deal.direct',
-        'deal.crit_direct'
-      ]
-    }, {
-      id: 1,
-      label: 'Tank',
-      width: 1,
-      sort: 'tank.damage',
-      col: [
-        'i.icon',
-        'i.name',
-        'deal.per_second',
-        'tank.damage',
-        'tank.heal',
-        'etc.death'
-      ]
-    }, {
-      id: 2,
-      label: 'Heal',
-      width: 1,
-      sort: 'heal.total',
-      col: [
-        'i.icon',
-        'i.name',
+        'deal.crit_direct',
         'heal.pct',
-        'heal.per_second',
-        'heal.total',
         'heal.over',
-        'heal.swing'
-      ]
-    }, {
-      id: 3,
-      label: '24',
-      width: 3,
-      sort: 'deal.total',
-      col: [
-        'i.icon',
-        'i.name',
-        'deal.per_second',
-        'deal.swing'
+        'etc.death'
       ]
     }
   ],
@@ -135,24 +100,24 @@ const CONFIG_DEFAULT = {
   color: {
     'gauge-default': '#444',
     'gauge-opacity': '1',
-    pld: 'rgb(21, 28, 100)', // Indigo 900 (B -10%)
-    war: 'rgb(153, 23, 23)', // Red 900 (B -10%)
-    drk: 'rgb(136, 14, 79)', // Pink 900
-    gnb: 'rgb(78, 52, 46)', // Brown 800
-    mnk: 'rgb(255, 152, 0)', // Orange 500
-    drg: 'rgb(63, 81, 181)', // Indigo 500
-    brd: 'rgb(158, 157, 36)', // Lime 800
-    nin: 'rgb(211, 47, 47)', // Red 700 // 와! 시바! 진성! 닌자다!
-    smn: 'rgb(46, 125, 50)', // Green 800
-    blm: 'rgb(126, 87, 194)', // Deep Purple 400
-    mch: 'rgb(0, 151, 167)', // Cyan 700
-    rdm: 'rgb(233, 30, 99)', // Pink 500
-    blu: 'rgb(0, 185, 247)', // Light Blue 500
-    dnc: 'rgb(244, 143, 177)', // Pink 200
-    sam: 'rgb(255, 202, 40)', // Amber 400
-    whm: 'rgb(117, 117, 117)', // Gray 600
-    sch: 'rgb(121, 134, 203)', // Indigo 300
-    ast: 'rgb(121, 85, 72)', // Brown 500
+    pld: 'rgb(13, 78, 168)', // Indigo 900 (B -10%)
+    war: 'rgb(13, 78, 168)', // Red 900 (B -10%)
+    drk: 'rgb(13, 78, 168)', // Pink 900
+    gnb: 'rgb(13, 78, 168)', // Brown 800
+    mnk: 'rgb(195, 0, 0)', // Orange 500
+    drg: 'rgb(195, 0, 0)', // Indigo 500
+    brd: 'rgb(195, 0, 0)', // Lime 800
+    nin: 'rgb(195, 0, 0)', // Red 700 // 와! 시바! 진성! 닌자다!
+    smn: 'rgb(195, 0, 0)', // Green 800
+    blm: 'rgb(195, 0, 0)', // Deep Purple 400
+    mch: 'rgb(195, 0, 0)', // Cyan 700
+    rdm: 'rgb(195, 0, 0)', // Pink 500
+    blu: 'rgb(195, 0, 0)', // Light Blue 500
+    dnc: 'rgb(195, 0, 0)', // Pink 200
+    sam: 'rgb(195, 0, 0)', // Amber 400
+    whm: 'rgb(46, 125, 50)', // Gray 600
+    sch: 'rgb(46, 125, 50)', // Indigo 300
+    ast: 'rgb(46, 125, 50)', // Brown 500
     'smn-pet': 'rgba(46, 125, 50, 0.5)',
     'sch-pet': 'rgba(121, 134, 203, 0.5)',
     'mch-pet': 'rgba(0, 151, 167, 0.5)',
@@ -168,7 +133,7 @@ const CONFIG_DEFAULT = {
     },
     merge_pet: true,
     myname: [],
-    use_short_name: 0,
+    use_short_name: 2,
     use_skill_aliases: true,
     use_tailing_pct: true,
     small_lower_numbers: false
@@ -180,11 +145,11 @@ const CONFIG_DEFAULT = {
   },
   element: {
     'narrow-nav': true,
-    'hide-footer': false,
-    'use-header-instead': false
+    'hide-footer': true,
+    'use-header-instead': true
   },
   footer: {
-    rank: true,
+    rank: false,
     rdps: true,
     rhps: false
   },
