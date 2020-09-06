@@ -1,5 +1,5 @@
 'use strict'
-// bbbvb
+// sdqdqsf
 let expectedCritChance = 0;
 let expectedDhChance = 0;
 let expectedCritDhChance = 0;
