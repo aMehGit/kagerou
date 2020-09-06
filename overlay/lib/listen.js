@@ -1,5 +1,5 @@
 'use strict'
-// random comment
+// xd
 let expectedCritChance = 0;
 let expectedDhChance = 0;
 let expectedCritDhChance = 0;
