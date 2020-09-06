@@ -30,6 +30,7 @@
 .flex-column-deal-miss          { width: var(--_deal-miss)rem; }
 .flex-column-deal-hitfail       { width: var(--_deal-hitfail)rem; }
 .flex-column-deal-critical      { width: var(--_deal-critical)rem; }
+.flex-column-deal-last60crit    { width: var(--_deal-last60crit)rem; }
 .flex-column-deal-direct        { width: var(--_deal-direct)rem; }
 .flex-column-deal-crit-direct   { width: var(--_deal-crit_direct)rem; }
 .flex-column-deal-crittypes     { width: var(--_deal-crittypes)rem; }
