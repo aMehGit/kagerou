@@ -25,7 +25,7 @@ const CONFIG_DEFAULT = {
     'content-fg': '#eee',
     'cell-bg': 'rgba(255, 255, 255, 0.1)',
     'my-row-fg': 'rgba(255, 244, 205, 1)',
-    'content-align': 'left',
+    'content-align': 'center',
     'color-accent': '#26c6da',
     'shadow-card': '0 0.05rem 0.25rem rgba(0, 0, 0, 0.5)',
     'shadow-text': '0 0 0.125em rgba(0, 0, 0, 1)',
