@@ -1,8 +1,8 @@
 'use strict'
 
-const expectedCritChance = Math.floor(200 * (window.config.get('stats.crit_points') - 380) / 3300 + 50) / 1000;
-const expectedDhChance = Math.floor(550 * (window.config.get('stats.crit_points') - 380) / 3300) / 1000;
-const expectedCritDhChance = critChance * dhChance;
+const expectedCritChance = 0;
+const expectedDhChance = 0;
+const expectedCritDhChance = 0;
 
 const goodRngSound = new Howl({ src: ['../sounds/good%20rng.mp3'] });
 const badRngSound = new Howl({ src: ['../sounds/bad%20rng.mp3'] });
@@ -123,7 +123,11 @@ function rngSoundHandler(last60CritChance, last60DhChance, last60CritDhChance) {
       this.saveid = `kagerou_save_${Date.now()}` +
           sanitize(data.Encounter.CurrentZoneName)
       
+      expectedCritChance = Math.floor(200 * (window.config.get('stats.crit_points') - 380) / 3300 + 50) / 1000;
+      expectedDhChance = Math.floor(550 * (window.config.get('stats.crit_points') - 380) / 3300) / 1000;
+      expectedCritDhChance = critChance * dhChance;
       this.update(data)
+      
       this.isCurrent = true
     }
 
