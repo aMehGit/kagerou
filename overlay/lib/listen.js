@@ -1,7 +1,7 @@
 'use strict'
 
-const goodRngSound = new Howl({ src: ['/sounds/good rng.mp3'] });
-const badRngSound = new Howl({ src: ['/sounds/bad rng.mp3'] });
+const goodRngSound = new Howl({ src: ['/sounds/good%20rng.mp3'] });
+const badRngSound = new Howl({ src: ['/sounds/bad20%rng.mp3'] });
 
 
 let lastSaveId = "";
