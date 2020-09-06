@@ -1,8 +1,8 @@
 'use strict'
 
-const expectedCritChance = 0;
-const expectedDhChance = 0;
-const expectedCritDhChance = 0;
+let expectedCritChance = 0;
+let expectedDhChance = 0;
+let expectedCritDhChance = 0;
 
 const goodRngSound = new Howl({ src: ['../sounds/good%20rng.mp3'] });
 const badRngSound = new Howl({ src: ['../sounds/bad%20rng.mp3'] });
