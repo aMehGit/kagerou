@@ -1,8 +1,8 @@
 'use strict'
 
-const goodRngSound = new Howl({ src: ['https://raw.githubusercontent.com/aMehGit/kagerou/master/overlay/sounds/good%20rng.mp3'] });
-const badRngSound = new Howl({ src: ['/sounds/bad%20rng.mp3'] });
-
+const goodRngSound = new Howl({ src: ['../sounds/good%20rng.mp3'] });
+const badRngSound = new Howl({ src: ['../sounds/bad%20rng.mp3'] });
+let lastPlayedSound = -1; // -1 plays any, 0 plays good mp3, 1 plays bad mp3
 
 let lastSaveId = "";
 let lastKnownDuration = 0;
@@ -29,14 +29,18 @@ function initAddedData(parseData) {
     const playerName = parseData[i].name;
     if (!last60CritData.hasOwnProperty(playerName)) {
       last60CritData[playerName] = new Array(60);
-      for (let i = 0; i != 60; ++i)
+      last60DhData[playerName] = new Array(60);
+      last60CritDhData[playerName] = new Array(60);
+      for (let i = 0; i != 60; ++i) {
         last60CritData[playerName][i] = new Array(2).fill(0);
+        last60DhData[playerName][i] = new Array(2).fill(0);
+        last60CritDhData[playerName][i] = new Array(2).fill(0);
+      }
     }
   }
 }
 
 function updateAddedData(parseData, headerDuration) {
-  goodRngSound.play();
   let durationDelta = Math.max(headerDuration - lastKnownDuration, 1);
   if (durationDelta > 60) { 
     //reset
@@ -46,6 +50,10 @@ function updateAddedData(parseData, headerDuration) {
       for(let j = 0; j != 60; ++j) {
         last60CritData[keys[i]][j][0] = last60CritData[keys[i]][prevIndex60][0];
         last60CritData[keys[i]][j][1] = last60CritData[keys[i]][prevIndex60][1];
+        last60DhData[keys[i]][j][0] = last60DhData[keys[i]][prevIndex60][0];
+        last60DhData[keys[i]][j][1] = last60DhData[keys[i]][prevIndex60][1];
+        last60CritDhData[keys[i]][j][0] = last60CritDhData[keys[i]][prevIndex60][0];
+        last60CritDhData[keys[i]][j][1] = last60CritDhData[keys[i]][prevIndex60][1];
       }
     }
     index60 = 0;
@@ -54,14 +62,24 @@ function updateAddedData(parseData, headerDuration) {
   
   for (let i = 0; i != parseData.length; ++i) {
     const playerName = parseData[i].name;
-    const crithits = parseInt(parseData[i].crithits);
+    const critCount = parseInt(parseData[i].crithits);
+    const dhCount = parseInt(parseData[i].DirectHitCount);
+    const critDhCount = parseInt(parseData[i].CritDirectHitCount);
     const swings = parseInt(parseData[i].swings);
-    const critChance = (crithits - last60CritData[playerName][index60][0]) / (swings - last60CritData[playerName][index60][1]);
+    const critChance = (critCount - last60CritData[playerName][index60][0]) / (swings - last60CritData[playerName][index60][1]);
+    const dhChance = (critDhCount - last60DhData[playerName][index60][0]) / (swings - last60DhData[playerName][index60][1]);
+    const critDhChance = (critDhCount - last60CritDhData[playerName][index60][0]) / (swings - last60CritDhData[playerName][index60][1]);
+    
     parseData[i].last60Crit = critChance;
+    parseData[i].last60Dh = dhChance;
+    parseData[i].last60CritDh = critDhChance;
+    
     let index = index60;
     for (let j = 0; j != durationDelta; ++j) {
-      last60CritData[playerName][index][0] = crithits;
-      last60CritData[playerName][index][1] = swings;
+      last60CritData[playerName][index][0] = critCount;
+      last60DhData[playerName][index][0] = dhCount;
+      last60CritDhData[playerName][index][0] = critDhCount;
+      last60CritData[playerName][index][1] = last60DhData[playerName][index][1] = last60CritDhData[playerName][index][1] = swings;
       index = (index + 1) % 60;
     }
   }
