@@ -1,5 +1,9 @@
 'use strict'
 
+const expectedCritChance = Math.floor(200 * (window.config.get('stats.crit_points') - 380) / 3300 + 50) / 1000;
+const expectedDhChance = Math.floor(550 * (window.config.get('stats.crit_points') - 380) / 3300) / 1000;
+const expectedCritDhChance = critChance * dhChance;
+
 const goodRngSound = new Howl({ src: ['../sounds/good%20rng.mp3'] });
 const badRngSound = new Howl({ src: ['../sounds/bad%20rng.mp3'] });
 let lastPlayedSound = -1; // -1 plays any, 0 plays good mp3, 1 plays bad mp3
@@ -66,13 +70,14 @@ function updateAddedData(parseData, headerDuration) {
     const dhCount = parseInt(parseData[i].DirectHitCount);
     const critDhCount = parseInt(parseData[i].CritDirectHitCount);
     const swings = parseInt(parseData[i].swings);
-    const critChance = (critCount - last60CritData[playerName][index60][0]) / (swings - last60CritData[playerName][index60][1]);
-    const dhChance = (critDhCount - last60DhData[playerName][index60][0]) / (swings - last60DhData[playerName][index60][1]);
-    const critDhChance = (critDhCount - last60CritDhData[playerName][index60][0]) / (swings - last60CritDhData[playerName][index60][1]);
+    const last60CritChance = (critCount - last60CritData[playerName][index60][0]) / (swings - last60CritData[playerName][index60][1]);
+    const last60DhChance = (critDhCount - last60DhData[playerName][index60][0]) / (swings - last60DhData[playerName][index60][1]);
+    const last60CritDhChance = (critDhCount - last60CritDhData[playerName][index60][0]) / (swings - last60CritDhData[playerName][index60][1]);
     
-    parseData[i].last60Crit = critChance;
-    parseData[i].last60Dh = dhChance;
-    parseData[i].last60CritDh = critDhChance;
+    parseData[i].last60Crit = last60CritChance;
+    parseData[i].last60Dh = last60DhChance;
+    parseData[i].last60CritDh = last60CritDhChance;
+    rngSoundHandler(last60CritChance, last60DhChance, last60CritDhChance);
     
     let index = index60;
     for (let j = 0; j != durationDelta; ++j) {
@@ -84,6 +89,20 @@ function updateAddedData(parseData, headerDuration) {
     }
   }
   index60 = (index60 + durationDelta) % 60;
+}
+
+function rngSoundHandler(last60CritChance, last60DhChance, last60CritDhChance) {
+  const deviation = (expectedCritChance - last60CritChance) + (expectedDhChance - last60DhChance) + (expectedCritDhChance - last60CritDhChance);
+  const shouldPlayGoodRngSound = (lastPlayedSound != 0) && (deviation >= 0);
+  const shouldPlayBadRngSound = (lastPlayedSound != 1) && (deviation < 0);
+  if (shouldPlayGoodRngSound) {
+    goodRngSound.play();
+    lastPlayedSound = 0;
+  }
+  else if (shouldPlayBadRngSound) {
+    badRngSound.play();
+    lastPlayedSound = 1;
+  }
 }
 
 ;(function() {
