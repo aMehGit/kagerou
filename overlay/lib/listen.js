@@ -1,6 +1,6 @@
 'use strict'
 
-const goodRngSound = new Howl({ src: ['/sounds/good%20rng.mp3'] });
+const goodRngSound = new Howl({ src: ['https://raw.githubusercontent.com/aMehGit/kagerou/master/overlay/sounds/good%20rng.mp3'] });
 const badRngSound = new Howl({ src: ['/sounds/bad%20rng.mp3'] });
 
 
