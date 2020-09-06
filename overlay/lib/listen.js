@@ -4,8 +4,8 @@ let expectedCritChance = 0;
 let expectedDhChance = 0;
 let expectedCritDhChance = 0;
 
-const goodRngSound = new Howl({ src: ['../sounds/good%20rng.mp3'] });
-const badRngSound = new Howl({ src: ['../sounds/bad%20rng.mp3'] });
+const goodRngSound = new Howl({ src: ['/sounds/good%20rng.mp3'] });
+const badRngSound = new Howl({ src: ['/sounds/bad%20rng.mp3'] });
 let lastPlayedSound = -1; // -1 plays any, 0 plays good mp3, 1 plays bad mp3
 
 let lastSaveId = "";
