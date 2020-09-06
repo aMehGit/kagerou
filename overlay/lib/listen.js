@@ -1,7 +1,7 @@
 'use strict'
 
 const goodRngSound = new Audio("https://raw.githubusercontent.com/aMehGit/kagerou/master/overlay/lib/good%20rng.mp3");
-const badRngSound = new Audio("bad rng.mp3");
+const badRngSound = new Audio("https://raw.githubusercontent.com/aMehGit/kagerou/master/overlay/lib/bad%20rng.mp3");
 
 
 let lastSaveId = "";
