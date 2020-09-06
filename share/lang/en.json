@@ -43,7 +43,7 @@
         "crit_dh_stats": "CRIT and DH stats",
         "crit-chance": "CRIT Chance",
         "dh-chance": "DH Chance",
-        "crit-dh-chance": "CRIT DH Chance"
+        "crit-dh-chance": "CRIT DH Chance",
         "combine_pet": "Pet merging",
         "split-by-comma": "Divide multiple names by ','",
         "basic": "Basic",
