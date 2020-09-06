@@ -7,8 +7,8 @@ const DESCRIPTION = Date.now() > 15959e8? '偽りなき技巧が挑戦への扉�
 const CONFIG_DEFAULT = {
   lang: 'en',
   stats: {
-    crit_chance: 0.05,
-    dh_chance: 0.00
+    crit_points: 380,
+    dh_points: 380
   },
   style: {
     // body
