@@ -9,7 +9,7 @@ const CONFIG_DEFAULT = {
   stats: {
     crit_chance: 0.05,
     dh_chance: 0.0,
-    crit_dh_chance: 0.0,
+    crit_dh_chance: 0.0
   },
   style: {
     // body
