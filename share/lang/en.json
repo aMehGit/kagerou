@@ -164,8 +164,8 @@
   },
   "config": {
     "stats": {
-      "crit_chance": "CRIT Chance",
-      "dh_chance": "DH Chance"
+      "crit_points": "CRIT Points",
+      "dh_points": "DH Points"
     },
     "style": {
       "_": "Style",
