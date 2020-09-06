@@ -41,9 +41,9 @@
       "general": {
         "_": "General",
         "crit_dh_stats": "CRIT and DH stats",
-        "crit-chance": "CRIT Chance",
-        "dh-chance": "DH Chance",
-        "crit-dh-chance": "CRIT DH Chance",
+        "crit_chance": "CRIT Chance",
+        "dh_chance": "DH Chance",
+        "crit_dh_chance": "CRIT DH Chance",
         "combine_pet": "Pet merging",
         "split-by-comma": "Divide multiple names by ','",
         "basic": "Basic",
