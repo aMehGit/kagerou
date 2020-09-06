@@ -1,5 +1,9 @@
 'use strict'
 
+const goodRngSound = new Audio("good rng.mp3");
+const badRngSound = new Audio("bad rng.mp3");
+
+
 let lastSaveId = "";
 let lastKnownDuration = 0;
 let shouldResetAddedData = false;
@@ -7,11 +11,15 @@ let shouldResetAddedData = false;
 let index60 = 0;
 
 let last60CritData = {}; //key, object pair: name (str), crit%EachSec (arr 60)
+let last60DhData = {};
+let last60CritDhData = {};
 
 function addedDataResetHandler() {
   if (shouldResetAddedData) {
     index60 = 0;
     last60CritData = {};
+    last60DhData = {};
+    last60CritDhData = {};
     shouldResetAddedData = false;
   }
 }
@@ -28,6 +36,7 @@ function initAddedData(parseData) {
 }
 
 function updateAddedData(parseData, headerDuration) {
+  goodRngSound.play();
   let durationDelta = Math.max(headerDuration - lastKnownDuration, 1);
   if (durationDelta > 60) { 
     //reset
