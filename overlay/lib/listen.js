@@ -125,7 +125,7 @@ function rngSoundHandler(last60CritChance, last60DhChance, last60CritDhChance) {
       
       expectedCritChance = Math.floor(200 * (window.config.get('stats.crit_points') - 380) / 3300 + 50) / 1000;
       expectedDhChance = Math.floor(550 * (window.config.get('stats.crit_points') - 380) / 3300) / 1000;
-      expectedCritDhChance = critChance * dhChance;
+      expectedCritDhChance = expectedCritChance * expectedDhChance;
       this.update(data)
       
       this.isCurrent = true
