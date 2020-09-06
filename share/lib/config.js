@@ -6,6 +6,11 @@ const DESCRIPTION = Date.now() > 15959e8? '偽りなき技巧が挑戦への扉�
 let countAbc = 0;
 const CONFIG_DEFAULT = {
   lang: 'en',
+  stats: {
+    crit_chance: 0.05,
+    dh_chance: 0.0,
+    crit_dh_chance: 0.0,
+  }
   style: {
     // body
     'resize-factor': 1,
@@ -44,8 +49,8 @@ const CONFIG_DEFAULT = {
         'i.name',
         'deal.pct',
         'deal.per_second',
-        'deal.critical',
         'deal.last60crit',
+        'deal.critical',
         'deal.direct',
         'deal.crit_direct',
         'heal.pct',
@@ -125,9 +130,6 @@ const CONFIG_DEFAULT = {
     'limit-break': '#444'
   },
   format: {
-    crit_chance: 0.05,
-    dh_chance: 0.0,
-    crit_dh_chance: 0.0,
     significant_digit: {
       dps: 0,
       hps: 0,
