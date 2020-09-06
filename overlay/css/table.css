@@ -31,6 +31,8 @@
 .flex-column-deal-hitfail       { width: var(--_deal-hitfail)rem; }
 .flex-column-deal-critical      { width: var(--_deal-critical)rem; }
 .flex-column-deal-last60crit    { width: var(--_deal-last60crit)rem; }
+.flex-column-deal-last60dh      { width: var(--_deal-last60dh)rem; }
+.flex-column-deal-last60critdh  { width: var(--_deal-last60critdh)rem; }
 .flex-column-deal-direct        { width: var(--_deal-direct)rem; }
 .flex-column-deal-crit-direct   { width: var(--_deal-crit_direct)rem; }
 .flex-column-deal-crittypes     { width: var(--_deal-crittypes)rem; }
