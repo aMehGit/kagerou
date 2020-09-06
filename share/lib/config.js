@@ -8,8 +8,7 @@ const CONFIG_DEFAULT = {
   lang: 'en',
   stats: {
     crit_chance: 0.05,
-    dh_chance: 0.00,
-    crit_dh_chance: 0.00
+    dh_chance: 0.00
   },
   style: {
     // body
