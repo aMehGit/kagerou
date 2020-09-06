@@ -165,8 +165,7 @@
   "config": {
     "stats": {
       "crit_chance": "CRIT Chance",
-      "dh_chance": "DH Chance",
-      "crit_dh_chance": "CRIT DH Chance"
+      "dh_chance": "DH Chance"
     },
     "style": {
       "_": "Style",
